@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_flutter/views/welcome_page.dart';
 import 'package:foodie_flutter/widgets/custom_icon_button.dart';
 import 'package:foodie_flutter/widgets/custom_text_button.dart';
 import 'package:foodie_flutter/widgets/custom_text_input.dart';
@@ -27,7 +28,11 @@ class LoginPage extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: CustomIconButton(
-                        onPressed: () { print('Icon Button Pressed'); },
+                        onPressed: () {
+                          print('Icon Button Pressed');
+                          var route = MaterialPageRoute(builder: (context) => const WelcomePage());
+                          Navigator.push(context, route);
+                        },
                         width: 45,
                         height: 45,
                       ),

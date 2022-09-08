@@ -6,8 +6,6 @@ class DeliveryTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    var size1 = size.height / 100;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       padding: const EdgeInsets.only(top: 20, bottom: 15, left: 20, right: 20),

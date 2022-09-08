@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_flutter/views/register_page.dart';
 import 'package:foodie_flutter/widgets/custom_button.dart';
+
+import 'login_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -44,7 +47,11 @@ class WelcomePage extends StatelessWidget {
                     ),
                     SizedBox(height: size1 * 11,),
                     CustomButton(
-                      onPressed: () { print('Login Pressed'); },
+                      onPressed: () {
+                        print('Login Pressed');
+                        var route = MaterialPageRoute(builder: (context) => const LoginPage());
+                        Navigator.push(context, route);
+                      },
                       buttonText: 'Login',
                       textColor: Colors.white,
                       buttonColor: Colors.red,
@@ -52,7 +59,11 @@ class WelcomePage extends StatelessWidget {
                     ),
                     SizedBox(height: size1 * 2.5,),
                     CustomButton(
-                      onPressed: () { print('Sign up Pressed'); },
+                      onPressed: () {
+                        print('Sign up Pressed');
+                        var route = MaterialPageRoute(builder: (context) => const RegisterPage());
+                        Navigator.push(context, route);
+                      },
                       buttonText: 'Sign up',
                       textColor: Colors.red,
                       buttonColor: Colors.white,
