@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_flutter/views/register_page.dart';
 import 'package:foodie_flutter/widgets/custom_button.dart';
-
 import 'login_page.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -31,7 +30,6 @@ class WelcomePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Text('Welcome', style: TextStyle(fontSize: 35, color: Colors.red),),
-                    //SizedBox(height: size1 * 2,),
                     Row(
                       children: const [
                         Expanded(child: SizedBox(),),

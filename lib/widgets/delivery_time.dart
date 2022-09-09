@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_flutter/widgets/custom_button_1.dart';
+import '../views/payment_page.dart';
 
 class DeliveryTime extends StatelessWidget {
   const DeliveryTime({Key? key}) : super(key: key);
@@ -53,7 +54,11 @@ class DeliveryTime extends StatelessWidget {
               const Text('109.00', style: TextStyle(fontSize: 22),),
               const Expanded(child: SizedBox(),),
               CustomButton1(
-                onPressed: () { print('Place Order Pressed'); },
+                onPressed: () {
+                  print('Place Order Pressed');
+                  var route = MaterialPageRoute(builder: (context) => const PaymentPage());
+                  Navigator.push(context, route);
+                },
                 buttonText: 'Place Order',
                 textColor: Colors.white,
                 buttonColor: Colors.red,

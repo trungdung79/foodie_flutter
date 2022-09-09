@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../views/choose_address_page.dart';
 import '../views/payment_method_page.dart';
 

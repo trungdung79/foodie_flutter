@@ -60,7 +60,10 @@ class _CartPageState extends State<CartPage> {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: CustomIconButton(
-                      onPressed: () { print('Icon Button Pressed'); },
+                      onPressed: () {
+                        print('Icon Button Pressed');
+                        Navigator.pop(context);
+                      },
                       width: 45,
                       height: 45,
                     ),
@@ -92,7 +95,7 @@ class _CartPageState extends State<CartPage> {
                         description: foodList[index].description,
                         price: foodList[index].price,
                         rating: foodList[index].rating,
-                        starWidget: StarRow1()
+                        starWidget: const StarRow1()
                       );
                     } else if (foodList[index].rating == 2) {
                       return FoodItemType(
@@ -102,7 +105,7 @@ class _CartPageState extends State<CartPage> {
                         description: foodList[index].description,
                         price: foodList[index].price,
                         rating: foodList[index].rating,
-                        starWidget: StarRow2()
+                        starWidget: const StarRow2()
                       );
                     } else {
                       return FoodItemType(
@@ -112,7 +115,7 @@ class _CartPageState extends State<CartPage> {
                         description: foodList[index].description,
                         price: foodList[index].price,
                         rating: foodList[index].rating,
-                        starWidget: StarRow3()
+                        starWidget: const StarRow3()
                       );
                     }
                  }

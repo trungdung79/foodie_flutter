@@ -25,7 +25,10 @@ class PaymentPage extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: CustomIconButton(
-                        onPressed: () { print('Icon Button Pressed'); },
+                        onPressed: () {
+                          print('Icon Button Pressed');
+                          Navigator.pop(context);
+                        },
                         width: 45,
                         height: 45,
                       ),
