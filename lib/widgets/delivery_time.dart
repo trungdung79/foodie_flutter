@@ -3,7 +3,10 @@ import 'package:foodie_flutter/widgets/custom_button_1.dart';
 import '../views/payment_page.dart';
 
 class DeliveryTime extends StatelessWidget {
-  const DeliveryTime({Key? key}) : super(key: key);
+  final double totalPrice;
+  const DeliveryTime({Key? key,
+    required this.totalPrice
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,10 @@ class DeliveryTime extends StatelessWidget {
                   child: Text('\$', style: TextStyle(fontSize: 14, color: Colors.red),),
                 ),
               ),
-              const Text('109.00', style: TextStyle(fontSize: 22),),
+              Text(
+                totalPrice.toStringAsFixed(2),
+                style: const TextStyle(fontSize: 22),
+              ),
               const Expanded(child: SizedBox(),),
               CustomButton1(
                 onPressed: () {

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_flutter/widgets/delivery_time.dart';
-import 'package:foodie_flutter/widgets/food_item_type.dart';
+import 'package:foodie_flutter/widgets/food_item.dart';
 import '../model/food.dart';
 import '../widgets/custom_icon_button.dart';
-import '../widgets/star_row_1.dart';
-import '../widgets/star_row_2.dart';
-import '../widgets/star_row_3.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -17,6 +14,14 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   List<Food> foodList = [];
 
+  double get totalPrice {
+    double total = 0.0;
+    for (Food food in foodList) {
+      total += food.price * food.quantity;
+    }
+    return total;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -25,21 +30,24 @@ class _CartPageState extends State<CartPage> {
       name: 'Fried Chicken',
       description: 'Golden browse fried chicken',
       price: 20.0,
-      rating: 2
+      quantity: 2,
+      rating: 4.5
     ));
     foodList.add(Food(
       imageStr: 'assets/images/Food_2.png',
       name: 'Cheese Sandwich',
       description: 'Grilled Cheese Sandwich',
       price: 18.0,
-      rating: 3
+      quantity: 3,
+      rating: 4
     ));
     foodList.add(Food(
       imageStr: 'assets/images/Food_3.png',
       name: 'Egg Pasta',
       description: 'Spicy Chicken Pasta',
       price: 15.0,
-      rating: 1
+      quantity: 1,
+      rating: 5
     ));
   }
 
@@ -87,41 +95,19 @@ class _CartPageState extends State<CartPage> {
                   scrollDirection: Axis.vertical,
                   itemCount: foodList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    if (foodList[index].rating == 1) {
-                      return FoodItemType(
-                        id: foodList[index].id,
-                        imageStr: foodList[index].imageStr,
-                        name: foodList[index].name,
-                        description: foodList[index].description,
-                        price: foodList[index].price,
-                        rating: foodList[index].rating,
-                        starWidget: const StarRow1()
-                      );
-                    } else if (foodList[index].rating == 2) {
-                      return FoodItemType(
-                        id: foodList[index].id,
-                        imageStr: foodList[index].imageStr,
-                        name: foodList[index].name,
-                        description: foodList[index].description,
-                        price: foodList[index].price,
-                        rating: foodList[index].rating,
-                        starWidget: const StarRow2()
-                      );
-                    } else {
-                      return FoodItemType(
-                        id: foodList[index].id,
-                        imageStr: foodList[index].imageStr,
-                        name: foodList[index].name,
-                        description: foodList[index].description,
-                        price: foodList[index].price,
-                        rating: foodList[index].rating,
-                        starWidget: const StarRow3()
-                      );
-                    }
+                    return FoodItem(
+                      id: foodList[index].id,
+                      imageStr: foodList[index].imageStr,
+                      name: foodList[index].name,
+                      description: foodList[index].description,
+                      price: foodList[index].price,
+                      quantity: foodList[index].quantity,
+                      rating: foodList[index].rating
+                    );
                  }
               ),
             ),
-            const DeliveryTime(),
+            DeliveryTime(totalPrice: totalPrice,),
           ],
         ),
       ),

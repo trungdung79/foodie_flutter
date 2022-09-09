@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_flutter/widgets/custom_rating.dart';
 
-class FoodItemType extends StatelessWidget {
+class FoodItem extends StatelessWidget {
   final int id;
   final String imageStr;
   final String name;
   final String description;
   final double price;
-  final int rating;
-  final starWidget;
-  const FoodItemType({Key? key,
+  final int quantity;
+  final double rating;
+  const FoodItem({Key? key,
     required this.id,
     required this.imageStr,
     required this.name,
     required this.description,
     required this.price,
-    required this.rating,
-    required this.starWidget
+    required this.quantity,
+    required this.rating
   }) : super(key: key);
 
   @override
@@ -51,11 +52,11 @@ class FoodItemType extends StatelessWidget {
                           Text(name, style: const TextStyle(fontSize: 16),),
                           const Expanded(child: SizedBox(),),
                           SizedBox(
-                            width: 20,
+                            width: 50,
                             height: 18,
                             child: Align(
                               alignment: Alignment.topRight,
-                              child: Text('${rating}x', style: const TextStyle(fontSize: 13, color: Colors.red),),
+                              child: Text('${quantity}x', style: const TextStyle(fontSize: 13, color: Colors.red),),
                             ),
                           ),
                         ],
@@ -79,7 +80,15 @@ class FoodItemType extends StatelessWidget {
                           ),
                           Text(price.toStringAsFixed(2), style: const TextStyle(fontSize: 18),),
                           const Expanded(child: SizedBox(),),
-                          starWidget,
+                          CustomRating(
+                            emptyIcon: Icons.star_border,
+                            halfIcon: Icons.star_half,
+                            fullIcon: Icons.star,
+                            iconSize: 16,
+                            iconColor: Colors.orange,
+                            itemCount: 5,
+                            rating: rating
+                          ),
                         ],
                       ),
                     ],

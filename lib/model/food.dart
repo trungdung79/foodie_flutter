@@ -5,13 +5,15 @@ class Food {
   final String name;
   final String description;
   final double price;
-  final int rating;
+  final int quantity;
+  final double rating;
 
   Food({
     required this.imageStr,
     required this.name,
     required this.description,
     required this.price,
+    required this.quantity,
     required this.rating
   }) {
     increment++;
